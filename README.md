@@ -1,2 +1,2 @@
-Flash card menggunakan javascript
+Flash card menggunakan vanilla javascript, roadmap.sh project link:
 https://roadmap.sh/projects/flash-cards

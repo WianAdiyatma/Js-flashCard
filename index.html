@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flash Card</title>
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      h1 {
+        text-align: center;
+      }
+
+      .container {
+        border: 2px solid #888;
+        border-radius: 10px;
+      }
+
+      .question {
+        border-radius: 10px;
+
+        background-color: #ccc;
+        margin: 5px;
+        padding: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 300px;
+      }
+
+      .navbar {
+        border-radius: 10px;
+        background-color: #ccc;
+        margin: 5px;
+        padding: 5px;
+        display: flex;
+        justify-content: space-around;
+      }
+
+      .navbar p:hover {
+        cursor: pointer;
+        color: #fff;
+      }
+
+      .navbar p:nth-child(2) {
+        font-weight: bold;
+      }
+
+      .unactive {
+        display: none;
+      }
+
+      .progress-bar-container {
+        border-radius: 5px;
+        padding: 5px;
+        border: 2px solid #888;
+        margin-bottom: 10px;
+        position: relative;
+        overflow: hidden; /* Mencegah elemen keluar dari batas */
+      }
+
+      .progress-bar-content {
+        padding: 5px 10px;
+        border-radius: 5px;
+        display: flex;
+        justify-content: space-between; /* Pastikan teks tetap di tempat */
+        align-items: center;
+        height: 30px;
+        color: black;
+        font-weight: bold;
+        position: relative; /* Pastikan tetap di atas .color */
+        overflow: hidden;
+      }
+
+      .progress-bar {
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 33%; /* Awalnya 0%, nanti diperbarui dengan JS */
+        background-color: #888; /* Warna progress */
+        transition: width 0.3s ease-in-out;
+        z-index: 0; /* Pastikan warna berada di belakang teks */
+      }
+
+      .progress-bar-content p {
+        position: relative;
+        z-index: 1; /* Pastikan teks tetap di atas */
+        margin: 0;
+        font-size: 14px;
+        white-space: nowrap; /* Mencegah teks berpindah ke baris baru */
+      }
+
+      .hide {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Flash Card</h1>
+    <div class="progress-bar-container">
+      <div class="progress-bar-content">
+        <p id="percentage"></p>
+        <div class="progress-bar"></div>
+        <p id="total-question"></p>
+      </div>
+    </div>
+    <div class="container">
+      <div class="question one">
+        <h2 class="ask">Lorem ipsum dolor sit amet?</h2>
+        <h2 class="hide answer">This is answer#1</h2>
+      </div>
+      <div class="question two unactive">
+        <h2 class="ask">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, illum?
+        </h2>
+        <h2 class="hide answer">This is answer#2</h2>
+      </div>
+      <div class="question three unactive">
+        <h2 class="ask">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia sapiente
+          minima alias adipisci?
+        </h2>
+        <h2 class="hide answer">This is answer#3</h2>
+      </div>
+      <div class="navbar">
+        <p class="prev">< Previous</p>
+        <p id="answerbtn">Show Answer</p>
+        <p class="next">Next ></p>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
